@@ -1,0 +1,41 @@
+@font-face
+    font-family: 'Josefin Sans'
+    src: url(../fonts/JosefinSans-VariableFont_wght.ttf)
+    font-style: normal
+
+@mixin font-face
+    font-family: 'Josefin Sans'
+
+.header
+    padding: 10px 20px 10px
+    background-color: #ECF7F3
+    margin-bottom: 40px
+    display: flex
+    justify-content: space-between
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    &__title
+        color: #2b73d1
+        font-size: 25px
+        font-weight: 600
+        text-transform: uppercase
+    &__logo
+        display: flex
+        justify-content: flex-start
+        align-items: center
+    &__img
+        width: 30px
+        margin: 10px
+        position: relative
+    &__menu
+        display: flex
+        justify-content: flex-end
+        color: #000
+        li
+            margin-left: 25px
+            text-decoration: none
+            list-style: none
+            padding: 10px
+            background-color: #3dce77
+            color: #f7f7f7
+            border-radius: 8px
