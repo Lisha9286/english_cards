@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Card.sass';
 
+
 export default function CardCheck(props) {
     const [pressed, setPressed] = useState(false);
 
     const handleChange = () => {
         setPressed(!pressed);
     }
-    // let classCard = '';
 
     return (
 

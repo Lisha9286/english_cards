@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment className = "App">
       <Header/>
-      <Gallery/>
+      <Gallery />
   </React.Fragment>
   );
 }

@@ -5,10 +5,13 @@ import { cards } from "../Data";
 
 export default function Gallery(props) {
     const [index, setIndex] = useState(1);
+    const [pressed, setPressed] = useState(false);
+
 
     const nextCard = () => {
         if (index !== cards.length) {
             setIndex(index + 1)
+            setPressed(false)
         }
         else if (index === cards.length) {
             setIndex(1)
@@ -18,20 +21,22 @@ export default function Gallery(props) {
     const prevCard = () => {
         if (index !== 1) {
             setIndex(index - 1)
+            setPressed(false)
         }
         else if (index === 1) {
             setIndex(cards.length)
         }
     };
 
+    const handleChange = () => {
+        setPressed(!pressed);
+    }
+
     const infoCard = cards.map((card) => {
         return (
             <CardCheck img={card.img} englishWord={card.englishWord} transcription={card.transcription} russianWord={card.russianWord} />
         )
-
     })
-
-
 
     return (
         <div className="card">
