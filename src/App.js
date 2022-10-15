@@ -1,15 +1,23 @@
 import React from 'react';
-import Card from './Components/Card';
-import { cards } from "./Data";
+import Gallery from './Components/Gallery';
+import Homepage from './Components/Homepage';
+import { Routes, Route } from 'react-router-dom';
+import NotFoundPage from './Components/NotFoundPage';
+import { Layout } from './Components/Layout';
+
 
 function App() {
+  
   return (
-    <React.Fragment className = "App">
-    {
-    cards.map((card) =>
-    <Card img={card.img} englishWord={card.englishWord} transcription={card.transcription} russianWord={card.russianWord}/>
-    )}
-  </React.Fragment>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={< Homepage />} />
+          <Route index path='train' element={< Gallery />} />
+          <Route index path='*' element={< NotFoundPage/>} /> 
+        </Route>
+      </Routes>
+    </>
   );
 }
 

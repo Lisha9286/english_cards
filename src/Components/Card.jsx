@@ -1,15 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Homepage.sass';
 
-
-function Card(props) {
+export default function Card(props) {
     return (
-        <div className="card">
-            <div><img className="img" src={props.img} alt="pic" /></div>
-            <div className="title">{props.englishWord}</div>
-            <div>[{props.transcription}]</div>
-            <div className="title">{props.russianWord}</div>
-        </div>
-    );
+        <>
+            <div className="table__word">{props.englishWord}</div>
+            <div className='table__word'>{props.russianWord}</div>
+            <div className='table__word'>{props.transcription}</div>
+        </>
+        
+    )
 }
-
-export default Card

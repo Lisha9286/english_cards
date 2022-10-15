@@ -1,0 +1,22 @@
+@font-face
+    font-family: 'Source Sans Pro'
+    src: url(../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
+    font-weight: 400
+    font-style: normal
+
+@mixin font-face
+    font-family: 'Source Sans Pro'
+
+.table
+    display: grid
+    max-width: 70%
+    margin: 0 auto
+    margin-top: 50px
+    grid-template-columns: 1fr 1fr 1fr
+    background-color: #f7f7f7
+    border-radius: 8px
+    border: 1px rgb(78, 78, 78, 0.5) solid
+    @include font-face
+    &__word
+        color: rgb(43, 43, 43)
+        padding: 20px
