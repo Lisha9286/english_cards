@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { cards } from "../Data";
+<<<<<<< HEAD
 import './Gallery.sass';
+=======
+import './Card.sass';
+>>>>>>> c064f9fdb3e5be521d586e4ccc9d1b1721ff2094
 
 
 export default function Gallery() {
