@@ -1,6 +1,6 @@
 @font-face
     font-family: 'Source Sans Pro'
-    src: url(../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
+    src: url(../../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
     font-weight: 400
     font-style: normal
 
@@ -8,18 +8,26 @@
     font-family: 'Source Sans Pro'
 
 .card
-    display: flex
-    justify-content: space-between
-    align-items: center
     background-color: #ECF7F3
     border-radius: 10px
     max-width: 60%
     margin: 0 auto
-    margin-top: 10px
+    margin-top: 60px
     padding: 20px
     text-align: center
-    min-height: 400px
     @include font-face
+    &__gallery
+        display: flex
+        justify-content: space-between
+        align-items: center
+        text-align: center
+        margin: 0 auto
+        min-height: 400px
+    &__score
+        font-size: 20px
+        color: #2b73d1
+        font-weight: 600
+        text-transform: uppercase
     &__img
         text-align: center
         margin: 0 auto
@@ -62,3 +70,7 @@
 
 .none
     display: none
+
+.error
+    color: #f7f7f7
+    @include font-face
