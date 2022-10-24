@@ -5,11 +5,11 @@ import GetServices from '../../../Api/GetServices'
 export default function Gallery() {
     const [index, setIndex] = useState(1);
     const [pressed, setPressed] = useState(false);
-    const [learnt , setLearnt] = useState(0)
+    const [opened, setOpened] = useState(0)
 
     const handleChange = () => {
         setPressed(true);
-        setLearnt(learnt+1)
+        setOpened(opened+1)
     }
 
     const [data, setData] = useState(false)
@@ -44,7 +44,6 @@ export default function Gallery() {
         }
         else if (index === 1) {
             setIndex(data.length)
-            setPressed(false);
         }
     };
 
@@ -64,7 +63,7 @@ export default function Gallery() {
 
     return (
         <div className="card">
-            <div className='card__score'>learnt: {opened}</div>
+            <div className='card__score'>studied: {opened}</div>
             <div className='card__gallery'>
             <div><img className='card__arrow' src='./assets/images/left-arrow.png' alt='' onClick={prevCard} /></div>
                 {infoCard[index - 1]}
