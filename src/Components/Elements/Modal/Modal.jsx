@@ -16,14 +16,6 @@ export default function Modal({ options, closeModal }) {
         options.setFormTranscript(e.target.value)
     }
     
-    function ediCard() {
-        PutServices.putCard(options.formEnglish, options.formTranslate, options.formTranscript, options.card[0].id)
-        if(options.card[0].englishWord = false)
-        options.setModal(false)
-        options.setRerenderCard(!options.rerenderCard)
-        // cleanValue()
-    }
-
     let englishValue = ""
     let translateValue = ""
     let transcriptionValue = ""
@@ -34,11 +26,24 @@ export default function Modal({ options, closeModal }) {
         transcriptionValue  = options.card[0].transcription
     }
 
-    // function cleanValue() {
-    //     englishValue = ""
-    //     translateValue = ""
-    //     transcriptionValue = ""
-    // }
+    //редактирование карточек
+    function ediCard() {
+        PutServices.putCard(options.formEnglish, options.formTranslate, options.formTranscript, options.card[0].id)
+        // if (options.card[0].englishWord = false) {
+        //     options.setFormEnglish()
+        // }
+        options.setModal(false)
+        options.setRerenderCard(!options.rerenderCard)
+        cleanValue()
+    }
+
+
+
+    function cleanValue() {
+        englishValue = ""
+        translateValue = ""
+        transcriptionValue = ""
+    }
 
 
     return (

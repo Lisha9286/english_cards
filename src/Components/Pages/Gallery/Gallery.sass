@@ -11,8 +11,7 @@
     background-color: #ECF7F3
     border-radius: 10px
     max-width: 60%
-    margin: 0 auto
-    margin-top: 60px
+    margin: 60px auto 70px
     padding: 20px
     text-align: center
     @include font-face
@@ -22,7 +21,7 @@
         align-items: center
         text-align: center
         margin: 0 auto
-        min-height: 400px
+        min-height: 480px
     &__score
         font-size: 20px
         color: #2b73d1
@@ -56,7 +55,7 @@
         border: none
         border-radius: 5px
         padding: 10px
-        cursor: pointer
+        cursor: default
         font-weight: 600
         font-size: 20px
         color: #ffffff
@@ -74,3 +73,7 @@
 .error
     color: #f7f7f7
     @include font-face
+
+.unchecked
+    border: 5px solid #fa6fff
+    cursor: pointer
