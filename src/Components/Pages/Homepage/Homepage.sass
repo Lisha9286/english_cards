@@ -12,7 +12,6 @@
     max-width: 70%
     margin: 0 auto
     margin-top: 50px
-    grid-template-columns: 1fr 1fr 1fr
     background-color: #f7f7f7
     border-radius: 8px
     border: 1px rgb(78, 78, 78, 0.5) solid
@@ -20,14 +19,30 @@
     &__word
         color: rgb(43, 43, 43)
         padding: 20px
+    &__string
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
     &__btn
         border-radius: 10px
         border: none
         padding-bottom: 22px
+        padding-right: 9px
         height: 20px
-        width: 22px
         background-color: #c4e4c9
         margin: 20px
+        cursor: pointer
+    &__add
+        text-transform: uppercase
+        border: none
+        border-radius: 5px
+        padding: 10px
+        cursor: pointer
+        font-weight: 600
+        font-size: 16px
+        color: #ffffff
+        width: 140px
+        background-color: rgba(72, 183, 116, 1)
+        margin: 15px auto 20px
 
 .transcript
     display: flex
