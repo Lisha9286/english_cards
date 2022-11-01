@@ -9,7 +9,6 @@ function Header() {
             <Link to="/" className='header__logo'>
                 <img className='header__img' alt="" src="./assets/images/english.png" />
                 <div className='header__title'>word practice</div>
-                
             </Link>
             <div className='header__navigation'>
                 <Link to="/train" className='header__menu'>Train Words</Link>

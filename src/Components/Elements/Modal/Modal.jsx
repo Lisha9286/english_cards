@@ -23,27 +23,27 @@ export default function Modal({ options, closeModal }) {
 
     const blurHandler = (e) => {
         switch (e.target.name) {
-            case 'english': 
+            case 'english':
                 if (e.target.value === "") {
                     setEmptyEng(true)
                 } else {
                     setErrorMsgEng("")
                 }
-            break
-            case 'translate': 
+                break
+            case 'translate':
                 if (e.target.value === "") {
                     setEmptyTranslate(true)
                 } else {
                     setErrorMsgTranslate("")
                 }
-            break
-            case 'transcription': 
+                break
+            case 'transcription':
                 if (e.target.value === "") {
                     setEmptyTranscript(true)
                 } else {
                     setErrorMsgTranscript("")
                 }
-            break
+                break
         }
     }
 
@@ -58,7 +58,7 @@ export default function Modal({ options, closeModal }) {
     function getValueFormTranscript(e) {
         options.setFormTranscript(e.target.value)
     }
-    
+
     let englishValue = ""
     let translateValue = ""
     let transcriptionValue = ""
@@ -66,7 +66,7 @@ export default function Modal({ options, closeModal }) {
     if (options.card) {
         englishValue = options.card[0].englishWord
         translateValue = options.card[0].translate
-        transcriptionValue  = options.card[0].transcription
+        transcriptionValue = options.card[0].transcription
     }
 
     //редактирование карточек
@@ -89,22 +89,22 @@ export default function Modal({ options, closeModal }) {
             <div className="modal">
                 <div className="modal__content">
                     <div>
-                    <form> 
-                        <div className="modal__form">
-                            <div>
+                        <form>
+                            <div className="modal__form">
+                                <div>
                                     {(isEmptyEng && errorMsgEng) && <div className='modal__error'>{errorMsgEng}</div>}
-                                <input onBlur={e => blurHandler(e)} onChange={getValueFormEnglish} defaultValue={englishValue} className="modal__input" type="text" placeholder="english" name="english" />
+                                    <input onBlur={e => blurHandler(e)} onChange={getValueFormEnglish} defaultValue={englishValue} className="modal__input" type="text" placeholder="english" name="english" />
+                                </div>
+                                <div>
+                                    {(isEmptyTranslate && errorMsgTranslate) && <div className='modal__error'>{errorMsgTranslate}</div>}
+                                    <input onBlur={e => blurHandler(e)} onChange={getValueFormTranslate} defaultValue={translateValue} className="modal__input" type="text" placeholder="translate" name="translate" />
+                                </div>
+                                <div>
+                                    {(isEmptyTranscript && errorMsgTranscript) && <div className='modal__error'>{errorMsgTranscript}</div>}
+                                    <input onBlur={e => blurHandler(e)} onChange={getValueFormTranscript} defaultValue={transcriptionValue} className="modal__input" type="text" placeholder="transcription" name="transcription" />
+                                </div>
                             </div>
-                            <div>
-                            {(isEmptyTranslate && errorMsgTranslate) && <div className='modal__error'>{errorMsgTranslate}</div>}
-                                <input onBlur={e => blurHandler(e)} onChange={getValueFormTranslate} defaultValue={translateValue} className="modal__input" type="text" placeholder="translate" name="translate" />
-                            </div>
-                            <div>
-                            {(isEmptyTranscript && errorMsgTranscript) && <div className='modal__error'>{errorMsgTranscript}</div>}
-                                <input onBlur={e => blurHandler(e)} onChange={getValueFormTranscript} defaultValue={transcriptionValue} className="modal__input" type="text" placeholder="transcription" name="transcription" />
-                            </div>
-                        </div>
-                    </form>
+                        </form>
                     </div>
                     <div className="modal__btns">
                         <button disabled={!formValid} onClick={ediCard}>save</button>

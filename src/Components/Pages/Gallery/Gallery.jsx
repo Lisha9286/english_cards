@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Gallery.sass'
 import GetServices from '../../../Api/GetServices'
+import Card from '../../Card';
 
 export default function Gallery() {
     const [index, setIndex] = useState(1);
@@ -50,13 +51,14 @@ export default function Gallery() {
 
     const infoCard = data.map((item) => {
         return (
-            <div className='card__info'>
-            <div className="card__title">{item.englishWord}</div>
-            <div><img className={`card__img ${pressed ? "" : "none"}`} src={item.img} alt="pic" /></div>
-            <div className={`card__translate  ${pressed ? "" : "hide"}`}>{item.translate} </div>
-            <button className={`card__btn card__btn_train ${pressed ? "" : "unchecked"}`} disabled={`${pressed ? "disabled" : ""}`} onClick={handleChange}>check</button>
-            <div className={`card__transcription ${pressed ? "" : "hide"}`}>[{item.transcription}]</div>
-            </div>
+            // <div className='card__info'>
+            // <div className="card__title">{item.englishWord}</div>
+            // <div><img className={`card__img ${pressed ? "" : "none"}`} src={item.img} alt="pic" /></div>
+            // <div className={`card__translate  ${pressed ? "" : "hide"}`}>{item.translate} </div>
+            // <button className={`card__btn card__btn_train ${pressed ? "" : "unchecked"}`} disabled={`${pressed ? "disabled" : ""}`} onClick={handleChange}>check</button>
+            // <div className={`card__transcription ${pressed ? "" : "hide"}`}>[{item.transcription}]</div>
+            // </div>
+            <Card img={item.img} englishWord={item.englishWord} transcription={item.transcription} translate={item.translate} handleChanges={ handleChange} options={{setPressed, pressed} }/>
         )
     })
 
