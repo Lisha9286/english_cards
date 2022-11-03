@@ -31,6 +31,14 @@
       "transcription": "streɪ",
       "pronunciation": "",
       "img": "./assets/images/stray.jpg"
+    },
+    {
+      "id": 5,
+      "englishWord": "stray",
+      "translate": "заблудившийся, бездомный, беспризорный",
+      "transcription": "streɪ",
+      "pronunciation": "",
+      "img": "./assets/images/stray.jpg"
     }
   ]
 }
