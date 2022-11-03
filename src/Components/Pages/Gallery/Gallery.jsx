@@ -8,10 +8,10 @@ export default function Gallery() {
     const [pressed, setPressed] = useState(false);
     const [opened, setOpened] = useState(0)
 
-    const handleChange = () => {
-        setPressed(true);
-        setOpened(opened+1)
-    }
+    // const handleChange = () => {
+    //     setPressed(true);
+    //     setOpened(opened+1)
+    // }
 
     const [data, setData] = useState(false)
     async function getCards() {
@@ -58,7 +58,7 @@ export default function Gallery() {
             // <button className={`card__btn card__btn_train ${pressed ? "" : "unchecked"}`} disabled={`${pressed ? "disabled" : ""}`} onClick={handleChange}>check</button>
             // <div className={`card__transcription ${pressed ? "" : "hide"}`}>[{item.transcription}]</div>
             // </div>
-            <Card img={item.img} englishWord={item.englishWord} transcription={item.transcription} translate={item.translate} handleChanges={ handleChange} options={{setPressed, pressed} }/>
+            <Card img={item.img} englishWord={item.englishWord} transcription={item.transcription} translate={item.translate} option={{setPressed, pressed, setOpened, opened} }/>
         )
     })
 
