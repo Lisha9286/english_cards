@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class DelServices{
+class DelServices {
     static async delCard(id) {
         try {
             await axios({
@@ -8,7 +8,7 @@ class DelServices{
                 url: 'http://localhost:3001/cards/' + id
             })
         }
-        catch(e) {
+        catch (e) {
             console.error(e)
         }
     }

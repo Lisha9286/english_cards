@@ -18,7 +18,7 @@ export default function Gallery() {
         const cards = await GetServices.getCards()
         setData(cards)
     }
-
+    
     useEffect(() => {
         getCards()
     }, [])
@@ -32,7 +32,7 @@ export default function Gallery() {
         if (index !==data.length) {
             setIndex(index + 1)
             setPressed(false);
-        }
+    }
         else if (index === data.length) {
             setIndex(1)
             setPressed(false);
@@ -42,7 +42,7 @@ export default function Gallery() {
     const prevCard = () => {
         if (index !== 1) {
             setIndex(index - 1)
-        }
+    }
         else if (index === 1) {
             setIndex(data.length)
         }
@@ -50,7 +50,7 @@ export default function Gallery() {
 
 
     const infoCard = data.map((item) => {
-        return (
+    return (
             // <div className='card__info'>
             // <div className="card__title">{item.englishWord}</div>
             // <div><img className={`card__img ${pressed ? "" : "none"}`} src={item.img} alt="pic" /></div>
@@ -70,7 +70,7 @@ export default function Gallery() {
             <div><img className='card__arrow' src='./assets/images/left-arrow.png' alt='' onClick={prevCard} /></div>
                 {infoCard[index - 1]}
                 <div><img className='card__arrow' src='./assets/images/right-arrow.png' alt='' onClick={nextCard} /></div>
-                </div>
+        </div>
         </div >
     )
         

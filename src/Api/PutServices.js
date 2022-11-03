@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class PutServices{
+class PutServices {
     static async putCard(englishWord, translate, transcription, id) {
         try {
             await axios.put('http://localhost:3001/cards/' + id, {
@@ -9,7 +9,7 @@ class PutServices{
                 transcription
             })
         }
-        catch(e) {
+        catch (e) {
             console.error(e)
         }
     }
