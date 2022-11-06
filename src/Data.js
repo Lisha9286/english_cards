@@ -1,7 +1,7 @@
 export const cards = [
   {
     "englishWord": "sprinkler",
-    "russianWord": "разбрызгиватель, опрыскиватель, дождевальная установка",
+    "translate": "разбрызгиватель, опрыскиватель, дождевальная установка",
     "transcription": "sprɪŋklər",
     "pronunciation": "",
     "img": "./assets/images/sprinkler.jpg",
@@ -9,7 +9,7 @@ export const cards = [
   },
   {
     "englishWord": "dip",
-    "russianWord": "падение, погружение, купание",
+    "translate": "падение, погружение, купание",
     "transcription": "dɪp",
     "pronunciation": "",
     "img": "./assets/images/dip.jpg",
@@ -17,7 +17,7 @@ export const cards = [
   },
   {
     "englishWord": "ensue",
-    "russianWord": "вытекать, следовать, происходить, получаться в результате",
+    "translate": "вытекать, следовать, происходить, получаться в результате",
     "transcription": "ɪnˈsuː",
     "pronunciation": "",
     "img": "./assets/images/ensue.jpg",
@@ -25,7 +25,7 @@ export const cards = [
   },
   {
     "englishWord": "stray",
-    "russianWord": "заблудившийся, бездомный, беспризорный",
+    "translate": "заблудившийся, бездомный, беспризорный",
     "transcription": "streɪ",
     "pronunciation": "",
     "img": "./assets/images/stray.jpg",

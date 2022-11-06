@@ -1,30 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState, useContext } from 'react'
 import './Gallery.sass'
-import GetServices from '../../../Api/GetServices'
-import Card from '../../Card';
+import dataContext from "../../createContext"
 
 export default function Gallery() {
     const [index, setIndex] = useState(1);
     const [pressed, setPressed] = useState(false);
     const [opened, setOpened] = useState(0)
+    const data = useContext(dataContext)
 
-    // const handleChange = () => {
-    //     setPressed(true);
-    //     setOpened(opened+1)
-    // }
-
-    const [data, setData] = useState(false)
-    async function getCards() {
-        const cards = await GetServices.getCards()
-        setData(cards)
-    }
-    
-    useEffect(() => {
-        getCards()
-    }, [])
-    
-    if (!data) {
-        return <h1 className="error">Something went wrong...</h1>
+    const handleChange = () => {
+        setPressed(true);
+        setOpened(opened+1)
     }
 
     const nextCard = () => {
@@ -48,17 +34,17 @@ export default function Gallery() {
         }
     };
 
-
     const infoCard = data.map((item) => {
-    return (
-            // <div className='card__info'>
-            // <div className="card__title">{item.englishWord}</div>
-            // <div><img className={`card__img ${pressed ? "" : "none"}`} src={item.img} alt="pic" /></div>
-            // <div className={`card__translate  ${pressed ? "" : "hide"}`}>{item.translate} </div>
-            // <button className={`card__btn card__btn_train ${pressed ? "" : "unchecked"}`} disabled={`${pressed ? "disabled" : ""}`} onClick={handleChange}>check</button>
-            // <div className={`card__transcription ${pressed ? "" : "hide"}`}>[{item.transcription}]</div>
-            // </div>
-            <Card img={item.img} englishWord={item.englishWord} transcription={item.transcription} translate={item.translate} option={{setPressed, pressed, setOpened, opened} }/>
+        return (
+            
+                <div className='card__info'>
+                    <div className="card__title">{item.english}</div>
+                    <div><img className={`card__img ${pressed ? "" : "none"}`} src={item.img} alt="pic" /></div>
+                    <div className={`card__translate  ${pressed ? "" : "hide"}`}>{item.russian} </div>
+                    <button className={`card__btn card__btn_train ${pressed ? "" : "unchecked"}`} disabled={`${pressed ? "disabled" : ""}`} onClick={handleChange}>check</button>
+                    <div className={`card__transcription ${pressed ? "" : "hide"}`}>[{item.transcription}]</div>
+                </div>
+        
         )
     })
 
@@ -67,11 +53,10 @@ export default function Gallery() {
         <div className="card">
             <div className='card__score'>studied: {opened}</div>
             <div className='card__gallery'>
-            <div><img className='card__arrow' src='./assets/images/left-arrow.png' alt='' onClick={prevCard} /></div>
-                {infoCard[index - 1]}
+                <div><img className='card__arrow' src='./assets/images/left-arrow.png' alt='' onClick={prevCard} /></div>
+                    {infoCard[index - 1]}
                 <div><img className='card__arrow' src='./assets/images/right-arrow.png' alt='' onClick={nextCard} /></div>
-        </div>
+            </div>
         </div >
-    )
-        
+    ) 
 }
