@@ -1,10 +1,8 @@
 import axios from "axios";
+import Error from "../Components/Elements/Error/Error";
 
-
-class PostServices {
-
-
-    static async postCards(id, english, transcription, russian, tags) {
+class AddServices {
+    static async addCards(id, english, transcription, russian, tags) {
         try {
             await axios.post('http://itgirlschool.justmakeit.ru/api/words/add', {
                 id: id,
@@ -18,11 +16,10 @@ class PostServices {
                 })
         }
         catch (e) {
-            // return <>
-            //     <div>Ошибка: {e.message}</div>
-            //     <Error /> </>
-            console.error(e)
+            return <>
+                <div> {e.message}</div>
+                <Error /> </>
         }
     }
 }
-export default PostServices
+export default AddServices

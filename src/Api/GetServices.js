@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Error from '../Components/Elements/Error/Error'
 
 class GetServices {
     static async getCards() {
@@ -6,7 +7,9 @@ class GetServices {
             const responce = await axios.get('http://itgirlschool.justmakeit.ru/api/words/')
             return responce.data
         } catch (e) {
-            console.error(e)
+            return <>
+                <div> {e.message}</div>
+                <Error /> </>
         }
     }
 }

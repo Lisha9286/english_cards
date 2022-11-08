@@ -5,13 +5,14 @@ import { Routes, Route } from 'react-router-dom'
 import NotFoundPage from './Components/Pages/NotFoundPage/NotFoundPage'
 import { Layout } from './Components/Layout'
 import dataContext from "./Components/createContext"
-// import PostServices from './Api/PostServices'
+// import AddServices from './Api/PostServices'
 import GetServices from './Api/GetServices'
-
 
 
 function App() {
   const [data, setData] = useState([])
+
+  //получение слов
   async function componentDidMount() {
     const words = await GetServices.getCards()
     setData(words)

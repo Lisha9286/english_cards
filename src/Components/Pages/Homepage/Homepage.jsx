@@ -2,6 +2,7 @@ import { useState, useContext  } from 'react'
 import Modal from '../../Elements/Modal/Modal'
 import './Homepage.sass'
 import dataContext from "../../createContext"
+import DelServices from '../../../Api/DelServices'
 
 export default function Homepage() {
     const [modal, setModal] = useState(false)
@@ -11,13 +12,30 @@ export default function Homepage() {
     const [card, setCard] = useState(false)
     const [rerenderCard, setRerenderCard] = useState(false)
     const data = useContext(dataContext)
-
-
+    // const [data, setData] = useState(false)
+    const [flagDelCard, setflagDelCard] = useState(false)
 
     // открытие модального окна
     const openModal = () => {
         setModal(true)
     }
+
+    //удаление слова
+    function deleteCard(id) {
+        DelServices.delCard(id)
+        setflagDelCard(!flagDelCard)
+    }
+
+    //редактирование слова
+    function editCard(id) {
+        const card = data.filter(item => item.id == id)
+        setCard(card)
+        setModal(true)
+    }
+
+    // useEffect(() => {
+        
+    // }, [flagDelCard, rerenderCard])
 
 
     return (
@@ -32,8 +50,8 @@ export default function Homepage() {
                     <div className='transcript'>
                         <div className='table__word'>{item.transcription}</div>
                         <div>
-                            <button className='table__btn'>x</button>
-                            <button className='table__btn'>edit</button>
+                            <button className='table__btn'onClick={() => { deleteCard(item.id) }}>x</button>
+                            <button className='table__btn'onClick={() => { editCard(item.id) }}>edit</button>
                         </div>
                     </div>
                 </div>

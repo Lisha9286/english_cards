@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Modal.sass'
+import PutServices from '../../../Api/PutServices'
 
 export default function Modal({ options, closeModal }) {
 
@@ -17,7 +18,7 @@ export default function Modal({ options, closeModal }) {
         } else {
             setFormValid(true)
         }
-    }, [errorMsgEng, errorMsgTranslate, errorMsgTranscript])
+    }, [errorMsgEng, errorMsgTranslate, errorMsgTranscript, options.flagDelCard, options.rerenderCard])
 
     const blurHandler = (e) => {
         switch (e.target.name) {
@@ -67,6 +68,12 @@ export default function Modal({ options, closeModal }) {
         transcriptionValue = options.card[0].transcription
     }
 
+    //редактирование карточек
+    function ediCard() {
+        PutServices.putCard(options.formEnglish, options.formTranslate, options.formTranscript, options.card[0].id)
+        options.setModal(false)
+        options.setRerenderCard(!options.rerenderCard)
+    }
 
     return (
         <>
@@ -91,7 +98,7 @@ export default function Modal({ options, closeModal }) {
                         </form>
                     </div>
                     <div className="modal__btns">
-                        <button disabled={!formValid}>save</button>
+                        <button disabled={!formValid} onClick={ediCard}>save</button>
                         <button onClick={() => {
                             closeModal(false)}}>cancel</button>
                     </div>
