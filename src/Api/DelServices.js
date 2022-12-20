@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Error from "../Components/Elements/Error/Error";
 
 class DelServices {
     static async delCard(id) {
@@ -9,7 +10,9 @@ class DelServices {
             })
         }
         catch (e) {
-            console.error(e)
+            <>
+                <div> {e.message}</div>
+                <Error /> </>
         }
     }
 }

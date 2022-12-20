@@ -1,16 +1,19 @@
 import axios from 'axios'
+import Error from "../Components/Elements/Error/Error";
 
 class PutServices {
-    static async putCard(englishWord, translate, transcription, id) {
+    static async putCard(english, russian, transcription, id) {
         try {
             await axios.put('http://itgirlschool.justmakeit.ru/api/words/22/update' + id, {
-                englishWord,
-                translate,
+                english,
+                russian,
                 transcription
             })
         }
         catch (e) {
-            console.error(e)
+            <>
+                <div> {e.message}</div>
+                <Error /> </>
         }
     }
 }

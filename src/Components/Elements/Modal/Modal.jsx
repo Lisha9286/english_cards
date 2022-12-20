@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Modal.sass'
 import PutServices from '../../../Api/PutServices'
+// import AddServices from '../../../Api/AddServices'
 
 export default function Modal({ options, closeModal }) {
 
@@ -63,17 +64,27 @@ export default function Modal({ options, closeModal }) {
     let transcriptionValue = ""
 
     if (options.card) {
-        englishValue = options.card[0].englishWord
-        translateValue = options.card[0].translate
+        englishValue = options.card[0].english
+        translateValue = options.card[0].russian
         transcriptionValue = options.card[0].transcription
     }
 
     //редактирование карточек
     function ediCard() {
         PutServices.putCard(options.formEnglish, options.formTranslate, options.formTranscript, options.card[0].id)
+        options.setRerenderCard(!options.rerenderCard)
         options.setModal(false)
         options.setRerenderCard(!options.rerenderCard)
     }
+    
+    // //добавление слова
+    // function addCard() {
+    //     AddServices.addCards(options.formEnglish, options.formTranslate, options.formTranscript, options.card[0].id)
+    //     options.setRerenderCard(!options.rerenderCard)
+    //     options.setModal(false)
+    //     options.setRerenderCard(!options.rerenderCard)
+    // }
+    
 
     return (
         <>
@@ -98,7 +109,10 @@ export default function Modal({ options, closeModal }) {
                         </form>
                     </div>
                     <div className="modal__btns">
-                        <button disabled={!formValid} onClick={ediCard}>save</button>
+                        <button disabled={!formValid} onClick={() => {
+                            ediCard() 
+                            // addCard()
+                            closeModal(false)}}>save</button>
                         <button onClick={() => {
                             closeModal(false)}}>cancel</button>
                     </div>

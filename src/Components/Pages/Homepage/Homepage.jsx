@@ -1,4 +1,4 @@
-import { useState, useContext  } from 'react'
+import { useEffect, useState, useContext  } from 'react'
 import Modal from '../../Elements/Modal/Modal'
 import './Homepage.sass'
 import dataContext from "../../createContext"
@@ -28,19 +28,17 @@ export default function Homepage() {
 
     //редактирование слова
     function editCard(id) {
-        const card = data.filter(item => item.id == id)
+        const card = data.filter(item => item.id === id)
         setCard(card)
         setModal(true)
     }
 
-    // useEffect(() => {
-        
-    // }, [flagDelCard, rerenderCard])
-
+    useEffect(() => {
+    }, [flagDelCard, rerenderCard])
 
     return (
         <div >
-            {modal && <Modal closeModal={() => { setModal(false) }} options={{ formEnglish, formTranscript, formTranslate, setFormEnglish, setFormTranslate, setFormTranscript, setCard, card, setModal, rerenderCard, setRerenderCard} }>
+            {modal && <Modal closeModal={() => { setModal(false) }} options={{ formEnglish, formTranscript, formTranslate, setFormEnglish, setFormTranslate, setFormTranscript, setCard, card, modal,setModal, rerenderCard, setRerenderCard} }>
             </Modal>}
             <div className="table">
             {data.map((item, index) =>
